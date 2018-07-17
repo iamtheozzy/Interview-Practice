@@ -20,6 +20,8 @@ function maxChar(str) {
         }
     }
     
+    // searches "in" object for max item
+    // let char = KEYS not values 
     for (let char in charMap){
         if(charMap[char] > max){
             max = charMap[char];
