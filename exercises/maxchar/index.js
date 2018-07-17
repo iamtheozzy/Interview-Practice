@@ -7,17 +7,27 @@
 
 function maxChar(str) {
 
-    const charMap = {};
+    const charMap = {}
+    let max = 0;
+    let maxChar = '';
 
+    // creates an object that counts repeated items
     for(let char of str){
         if(charMap[char]){
-            charMap++;
+            charMap[char]++;
         } else {
             charMap[char] = 1;
         }
     }
-    console.log(charMap);
+    
+    for (let char in charMap){
+        if(charMap[char] > max){
+            max = charMap[char];
+            maxChar = char;
+        }
+    }
 
+    return maxChar;
 }
 
 
