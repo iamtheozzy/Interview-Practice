@@ -10,20 +10,32 @@
 
 function chunk(array, size) {
     const chunked = [];
+    let index = 0;
 
-    for(let element of array){
-        //finds the last item in new chunked arrray
-        const last = chunked[chunked.length - 1];
-
-        //if no item exist or the the size of last item is the length of 'size' argument push new array into chunked
-        if(!last || last.length === size){
-            chunked.push([element]);
-        //otherwise push element into last item
-        } else {
-            last.push(element);
-        }
+    while(index < array.length){
+        chunked.push(array.slice(index,index + size));
+        index += size;
     }
     return chunked;
 }
 
 module.exports = chunk;
+
+
+// function chunk(array, size) {
+//     const chunked = [];
+
+//     for(let element of array){
+//         //finds the last item in new chunked arrray
+//         const last = chunked[chunked.length - 1];
+
+//         //if no item exist or the the size of last item is the length of 'size' argument push new array into chunked
+//         if(!last || last.length === size){
+//             chunked.push([element]);
+//         //otherwise push element into last item
+//         } else {
+//             last.push(element);
+//         }
+//     }
+//     return chunked;
+// }
